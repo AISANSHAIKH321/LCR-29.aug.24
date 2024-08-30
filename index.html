@@ -1,0 +1,204 @@
+<html>
+	<head>
+		<title> Live CC App By Kamal Sir </title>
+		<style>* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and Background */
+body {
+    font-size: 18px; /* More reasonable size for readability */
+    font-family: 'Cambria', serif;
+    background-color: #f0f8ff; /* Light azure background */
+    color: #333; /* Dark gray text for better contrast */
+    line-height: 1.6;
+}
+
+/* Centered Container */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Heading Styles */
+h1 {
+    font-size: 3em; /* Scaled down size for a more balanced look */
+    color: #0066cc; /* Professional blue color */
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 2em;
+    width: 100%; /* Full width with padding instead */
+    padding: 20px;
+    border: 2px solid #0066cc; /* Blue border for emphasis */
+    border-radius: 10px;
+    background-color: #ffffff; /* White background for readability */
+    color: #333; /* Dark text color for contrast */
+    margin-top: 20px;
+}
+
+/* Form Styles */
+form {
+    margin-top: 20px;
+}
+
+input[type="number"] {
+    font-size: 1em;
+    padding: 10px;
+    border: 2px solid #0066cc;
+    border-radius: 5px;
+    width: 100%; /* Full width for better usability */
+    max-width: 300px; /* Restrict width for large screens */
+    box-shadow: 0 0 5px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+    margin-bottom: 20px;
+}
+
+input[type="submit"] {
+    font-size: 1em;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #0066cc;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #004999; /* Darker blue on hover */
+}
+		</style>
+	</head>
+	
+	<body>
+		<center>
+			<h1> Live CC App </h1>
+			<form onsubmit="convert()">
+		<input type="number" step="0.01" id="amt" placeholder="enter amt in $$ "/>
+				<br/><br/>
+				<input type="submit" value="Convert to ₹" />
+			</form>
+			<h2 id="msg"/>
+			
+			<script>
+				function convert()
+				{
+					event.preventDefault();
+					let amt = document.getElementById("amt");
+					let msg = document.getElementById("msg");
+					
+					if (amt.value === "")
+					{
+						alert("u did not enter amt ");
+						msg.innerHTML = "";
+						amt.focus();
+						return;
+					}
+				
+				let url = "https://api.exchangerate-api.com/v4/latest/USD";
+				fetch(url)
+				.then(res => res.json())
+				.then(data => {
+					let DOLLAR = data.rates.INR;
+					let aid = parseFloat(amt.value);
+					let air = aid * DOLLAR;
+					let ans = "₹" + air.toFixed(2);
+					msg.innerHTML = ans;
+				})
+				.catch( err => alert("issue " + err));
+				}
+			</script>
+		</center>
+	</body>
+</html>
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+					
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
